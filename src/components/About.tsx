@@ -15,7 +15,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              О нашей клинике
+              О нашем сайте
             </h2>
             <p className="text-lg text-gray-600 mb-6">
               Мы предоставляем высококачественные медицинские консультации, 
