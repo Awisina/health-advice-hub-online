@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Clock, Star, GraduationCap, Calendar, TrendingUp } from "lucide-react";
+import { MapPin, Phone, Clock, Star, GraduationCap, Calendar, TrendingUp, MessageSquare } from "lucide-react";
 import { calculateCommission, defaultCommissionSettings } from "@/utils/commissionCalculator";
 import { calculateExperience } from "@/utils/experienceCalculator";
 
@@ -45,10 +45,15 @@ const DoctorCard = ({ doctor, onBookAppointment }: DoctorCardProps) => {
               <CardDescription className="text-lg font-medium text-green-600">
                 {doctor.specialty}
               </CardDescription>
-              <div className="flex items-center space-x-2 mt-1">
-                <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                <span className="text-sm font-medium">{doctor.rating}</span>
-                <span className="text-sm text-gray-500">({doctor.reviews} отзывов)</span>
+              <div className="flex items-center space-x-4 mt-2">
+                <div className="flex items-center space-x-2">
+                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                  <span className="text-sm font-bold text-blue-600">{doctor.rating}/10</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MessageSquare className="w-4 h-4 text-gray-400" />
+                  <span className="text-sm text-gray-600">{doctor.reviews} отзывов</span>
+                </div>
               </div>
             </div>
           </div>
