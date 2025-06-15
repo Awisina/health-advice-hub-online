@@ -1,12 +1,16 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Phone, Mail, Clock, MapPin, User, Stethoscope } from "lucide-react";
+import { useState } from "react";
 
 const Contact = () => {
+  const [selectedRegion, setSelectedRegion] = useState("all");
+  const [selectedDistrict, setSelectedDistrict] = useState("all");
+
   const medicalInstitutions = [
     {
       region: "Москва",
@@ -55,6 +59,19 @@ const Contact = () => {
       ]
     }
   ];
+
+  // Получаем уникальные регионы и районы
+  const regions = ["all", ...Array.from(new Set(medicalInstitutions.map(inst => inst.region)))];
+  const districts = selectedRegion === "all" 
+    ? ["all", ...Array.from(new Set(medicalInstitutions.map(inst => inst.district)))]
+    : ["all", ...Array.from(new Set(medicalInstitutions.filter(inst => inst.region === selectedRegion).map(inst => inst.district)))];
+
+  // Фильтруем учреждения по выбранным критериям
+  const filteredInstitutions = medicalInstitutions.filter(institution => {
+    const regionMatch = selectedRegion === "all" || institution.region === selectedRegion;
+    const districtMatch = selectedDistrict === "all" || institution.district === selectedDistrict;
+    return regionMatch && districtMatch;
+  });
 
   return (
     <section id="contact" className="py-20 bg-gray-50">
@@ -150,8 +167,42 @@ const Contact = () => {
             Медицинские учреждения по регионам
           </h3>
           
+          {/* Фильтры */}
+          <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="w-full sm:w-64">
+              <Select value={selectedRegion} onValueChange={(value) => {
+                setSelectedRegion(value);
+                setSelectedDistrict("all");
+              }}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Выберите регион" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Все регионы</SelectItem>
+                  {regions.filter(region => region !== "all").map(region => (
+                    <SelectItem key={region} value={region}>{region}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="w-full sm:w-64">
+              <Select value={selectedDistrict} onValueChange={setSelectedDistrict}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Выберите район" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Все районы</SelectItem>
+                  {districts.filter(district => district !== "all").map(district => (
+                    <SelectItem key={district} value={district}>{district}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {medicalInstitutions.map((institution, index) => (
+            {filteredInstitutions.map((institution, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start justify-between">
@@ -227,6 +278,12 @@ const Contact = () => {
               </Card>
             ))}
           </div>
+          
+          {filteredInstitutions.length === 0 && (
+            <div className="text-center py-8">
+              <p className="text-gray-500">Медицинские учреждения по выбранным критериям не найдены</p>
+            </div>
+          )}
         </div>
       </div>
     </section>
