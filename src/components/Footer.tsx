@@ -1,5 +1,5 @@
 
-import { Heart, Phone, Mail } from "lucide-react";
+import { Heart, Phone, Mail, Facebook, Instagram, Telegram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -14,9 +14,24 @@ const Footer = () => {
             <p className="text-gray-400 mb-4">
               Профессиональные медицинские консультации для вашего здоровья и благополучия.
             </p>
+            <div className="flex space-x-4 mb-4">
+              <a href="tel:+74951234567" className="text-blue-400 hover:text-blue-300 transition-colors">
+                <Phone className="w-5 h-5" />
+              </a>
+              <a href="mailto:info@medconsult.ru" className="text-blue-400 hover:text-blue-300 transition-colors">
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
             <div className="flex space-x-4">
-              <Phone className="w-5 h-5 text-blue-400" />
-              <Mail className="w-5 h-5 text-blue-400" />
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Telegram">
+                <Telegram className="w-5 h-5" />
+              </a>
             </div>
           </div>
           
@@ -54,6 +69,20 @@ const Footer = () => {
                 <p className="text-xs">Режим работы:</p>
                 <p className="text-xs">Пн-Пт: 8:00-20:00</p>
                 <p className="text-xs">Сб-Вс: 9:00-18:00</p>
+              </div>
+              <div className="mt-4">
+                <p className="text-xs font-medium text-white mb-2">Мессенджеры:</p>
+                <div className="flex space-x-3">
+                  <a href="#" className="text-gray-400 hover:text-green-400 transition-colors text-xs">
+                    WhatsApp
+                  </a>
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-xs">
+                    Telegram
+                  </a>
+                  <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors text-xs">
+                    Viber
+                  </a>
+                </div>
               </div>
             </div>
           </div>
