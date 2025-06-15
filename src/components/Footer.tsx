@@ -1,5 +1,4 @@
-
-import { Heart, Phone, Mail, Facebook, Instagram, Telegram } from "lucide-react";
+import { Heart, Phone, Mail, Facebook, Instagram, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -23,14 +22,14 @@ const Footer = () => {
               </a>
             </div>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Facebook">
+              <a href="https://facebook.com/medconsult" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Instagram">
+              <a href="https://instagram.com/medconsult" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Telegram">
-                <Telegram className="w-5 h-5" />
+              <a href="https://t.me/medconsult" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Telegram">
+                <MessageCircle className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -73,13 +72,13 @@ const Footer = () => {
               <div className="mt-4">
                 <p className="text-xs font-medium text-white mb-2">Мессенджеры:</p>
                 <div className="flex space-x-3">
-                  <a href="#" className="text-gray-400 hover:text-green-400 transition-colors text-xs">
+                  <a href="https://wa.me/74951234567" className="text-gray-400 hover:text-green-400 transition-colors text-xs">
                     WhatsApp
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-xs">
+                  <a href="https://t.me/medconsult" className="text-gray-400 hover:text-blue-400 transition-colors text-xs">
                     Telegram
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors text-xs">
+                  <a href="viber://chat?number=74951234567" className="text-gray-400 hover:text-blue-500 transition-colors text-xs">
                     Viber
                   </a>
                 </div>
