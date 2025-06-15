@@ -1,3 +1,4 @@
+
 import { Heart, Phone, Mail, Facebook, Instagram, MessageCircle } from "lucide-react";
 
 const Footer = () => {
@@ -27,6 +28,9 @@ const Footer = () => {
               </a>
               <a href="https://instagram.com/medconsult" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
+              </a>
+              <a href="https://vk.com/medconsult" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="VK">
+                <MessageCircle className="w-5 h-5" />
               </a>
               <a href="https://t.me/medconsult" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Telegram">
                 <MessageCircle className="w-5 h-5" />
@@ -80,6 +84,9 @@ const Footer = () => {
                   </a>
                   <a href="viber://chat?number=74951234567" className="text-gray-400 hover:text-blue-500 transition-colors text-xs">
                     Viber
+                  </a>
+                  <a href="https://imo.im/medconsult" className="text-gray-400 hover:text-purple-400 transition-colors text-xs">
+                    IMO
                   </a>
                 </div>
               </div>
