@@ -19,6 +19,9 @@ const Navigation = () => {
             <a href="#institutions" className="text-gray-600 hover:text-blue-600 transition-colors">
               Медучреждения
             </a>
+            <a href="#pharmacies" className="text-gray-600 hover:text-blue-600 transition-colors">
+              Аптеки
+            </a>
             <a href="#about" className="text-gray-600 hover:text-blue-600 transition-colors">
               О нас
             </a>
