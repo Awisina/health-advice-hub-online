@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, Users, Shield, Clock, Phone, Mail, Calendar } from "lucide-react";
@@ -9,6 +10,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Pharmacies from "@/components/Pharmacies";
+import AIConsultant from "@/components/AIConsultant";
 
 const Index = () => {
   return (
@@ -16,6 +18,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Services />
+      <AIConsultant />
       <MedicalInstitutions />
       <Pharmacies />
       <About />
