@@ -23,10 +23,10 @@ const Index = () => {
       <AIConsultant />
       <PaidConsultations />
       <CommissionSettings />
+      <Contact />
       <Pharmacies />
       <Advertising />
       <About />
-      <Contact />
       <Footer />
     </div>
   );
