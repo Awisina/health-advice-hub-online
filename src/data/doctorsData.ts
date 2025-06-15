@@ -14,6 +14,7 @@ export interface Doctor {
   district: string;
   education: string;
   image: string;
+  careerStartDate: string; // Дата начала карьеры в формате YYYY-MM-DD
 }
 
 export const doctorsData: Doctor[] = [
@@ -31,7 +32,8 @@ export const doctorsData: Doctor[] = [
     region: "Москва",
     district: "Центральный",
     education: "РНИМУ им. Н.И. Пирогова",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    careerStartDate: "2009-06-01"
   },
   {
     id: 2,
@@ -47,7 +49,8 @@ export const doctorsData: Doctor[] = [
     region: "Москва",
     district: "Западный",
     education: "МГУ им. М.В. Ломоносова",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    careerStartDate: "2012-09-01"
   },
   {
     id: 3,
@@ -63,7 +66,8 @@ export const doctorsData: Doctor[] = [
     region: "Санкт-Петербург",
     district: "Центральный",
     education: "СПбГМУ им. И.П. Павлова",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    careerStartDate: "2006-05-15"
   },
   {
     id: 4,
@@ -79,7 +83,8 @@ export const doctorsData: Doctor[] = [
     region: "Свердловская область",
     district: "Центральный",
     education: "УГМУ",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    careerStartDate: "2004-08-01"
   },
   {
     id: 5,
@@ -95,7 +100,8 @@ export const doctorsData: Doctor[] = [
     region: "Новосибирская область",
     district: "Центральный",
     education: "НГМУ",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    careerStartDate: "2002-03-15"
   },
   {
     id: 6,
@@ -111,6 +117,7 @@ export const doctorsData: Doctor[] = [
     region: "Санкт-Петербург",
     district: "Центральный",
     education: "СПбГПМУ",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    careerStartDate: "2014-07-01"
   }
 ];

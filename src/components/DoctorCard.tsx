@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Clock, Star, GraduationCap, Calendar, TrendingUp } from "lucide-react";
 import { calculateCommission, defaultCommissionSettings } from "@/utils/commissionCalculator";
+import { calculateExperience } from "@/utils/experienceCalculator";
 
 interface Doctor {
   id: number;
@@ -19,6 +20,7 @@ interface Doctor {
   district: string;
   education: string;
   image: string;
+  careerStartDate: string;
 }
 
 interface DoctorCardProps {
@@ -28,6 +30,7 @@ interface DoctorCardProps {
 
 const DoctorCard = ({ doctor, onBookAppointment }: DoctorCardProps) => {
   const commissionResult = calculateCommission(doctor.price, defaultCommissionSettings);
+  const calculatedExperience = calculateExperience(doctor.careerStartDate);
 
   return (
     <Card className="hover:shadow-lg transition-shadow">
@@ -70,8 +73,14 @@ const DoctorCard = ({ doctor, onBookAppointment }: DoctorCardProps) => {
         <div className="flex items-center space-x-3">
           <GraduationCap className="w-5 h-5 text-gray-400" />
           <div>
-            <div className="text-sm font-medium">Опыт: {doctor.experience} лет</div>
+            <div className="text-sm font-medium">Опыт: {calculatedExperience} лет</div>
             <div className="text-sm text-gray-600">{doctor.education}</div>
+            <div className="text-xs text-gray-500 mt-1">
+              Карьера с {new Date(doctor.careerStartDate).toLocaleDateString('ru-RU', { 
+                year: 'numeric', 
+                month: 'long' 
+              })}
+            </div>
           </div>
         </div>
 
