@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, Users, Shield, Clock, Phone, Mail, Calendar } from "lucide-react";
@@ -13,6 +12,7 @@ import Pharmacies from "@/components/Pharmacies";
 import AIConsultant from "@/components/AIConsultant";
 import PaidConsultations from "@/components/PaidConsultations";
 import Advertising from "@/components/Advertising";
+import CommissionSettings from "@/components/CommissionSettings";
 
 const Index = () => {
   return (
@@ -22,6 +22,7 @@ const Index = () => {
       <Services />
       <AIConsultant />
       <PaidConsultations />
+      <CommissionSettings />
       <MedicalInstitutions />
       <Pharmacies />
       <Advertising />
