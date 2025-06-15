@@ -22,9 +22,9 @@ const Index = () => {
       <AIConsultant />
       <PaidConsultations />
       <CommissionSettings />
+      <Advertising />
       <Contact />
       <Pharmacies />
-      <Advertising />
       <Services />
       <About />
       <Footer />
