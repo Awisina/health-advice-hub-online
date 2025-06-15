@@ -11,6 +11,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Pharmacies from "@/components/Pharmacies";
 import AIConsultant from "@/components/AIConsultant";
+import PaidConsultations from "@/components/PaidConsultations";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <Hero />
       <Services />
       <AIConsultant />
+      <PaidConsultations />
       <MedicalInstitutions />
       <Pharmacies />
       <About />
