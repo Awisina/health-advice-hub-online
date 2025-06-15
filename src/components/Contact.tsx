@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -19,6 +20,7 @@ const Contact = () => {
       address: "г. Москва, ул. Тверская, д. 15",
       phone: "+7 (495) 123-45-67",
       email: "info@cgb-moscow.ru",
+      workingHours: "Круглосуточно",
       doctors: [
         { name: "Иванов Петр Сергеевич", specialty: "Кардиолог", phone: "+7 (495) 123-45-68" },
         { name: "Смирнова Елена Александровна", specialty: "Терапевт", phone: "+7 (495) 123-45-69" }
@@ -31,6 +33,7 @@ const Contact = () => {
       address: "г. Санкт-Петербург, Невский пр., д. 45",
       phone: "+7 (812) 345-67-89",
       email: "info@gp1-spb.ru",
+      workingHours: "Пн-Пт: 8:00-20:00, Сб-Вс: 9:00-18:00",
       doctors: [
         { name: "Козлов Андрей Викторович", specialty: "Невролог", phone: "+7 (812) 345-67-90" },
         { name: "Федорова Анна Николаевна", specialty: "Педиатр", phone: "+7 (812) 345-67-91" }
@@ -43,6 +46,7 @@ const Contact = () => {
       address: "г. Екатеринбург, ул. Ленина, д. 28",
       phone: "+7 (343) 456-78-90",
       email: "info@okb-ekb.ru",
+      workingHours: "Круглосуточно",
       doctors: [
         { name: "Петрова Ольга Дмитриевна", specialty: "Гинеколог", phone: "+7 (343) 456-78-91" }
       ]
@@ -54,6 +58,7 @@ const Contact = () => {
       address: "г. Новосибирск, ул. Красный пр., д. 12",
       phone: "+7 (383) 567-89-01",
       email: "info@zdorovie-nsk.ru",
+      workingHours: "Пн-Пт: 8:00-20:00, Сб: 9:00-18:00",
       doctors: [
         { name: "Волков Михаил Алексеевич", specialty: "Хирург", phone: "+7 (383) 567-89-02" }
       ]
@@ -78,13 +83,14 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Свяжитесь с нами
+            Контакты и медицинские учреждения
           </h2>
           <p className="text-xl text-gray-600">
-            Запишитесь на консультацию или получите ответы на ваши вопросы
+            Запишитесь на консультацию или найдите ближайшее медицинское учреждение
           </p>
         </div>
         
+        {/* Форма записи и основные контакты */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <Card>
             <CardHeader>
@@ -122,7 +128,7 @@ const Contact = () => {
               <CardContent className="flex items-center space-x-4 p-6">
                 <Phone className="w-8 h-8 text-blue-600" />
                 <div>
-                  <h3 className="font-semibold">Телефон</h3>
+                  <h3 className="font-semibold">Единый телефон</h3>
                   <p className="text-gray-600">+7 (495) 123-45-67</p>
                 </div>
               </CardContent>
@@ -153,7 +159,7 @@ const Contact = () => {
               <CardContent className="flex items-center space-x-4 p-6">
                 <MapPin className="w-8 h-8 text-blue-600" />
                 <div>
-                  <h3 className="font-semibold">Адрес</h3>
+                  <h3 className="font-semibold">Главный офис</h3>
                   <p className="text-gray-600">г. Москва, ул. Медицинская, д. 15</p>
                 </div>
               </CardContent>
@@ -243,6 +249,11 @@ const Contact = () => {
                     >
                       {institution.email}
                     </a>
+                  </div>
+
+                  <div className="flex items-center space-x-3">
+                    <Clock className="w-5 h-5 text-gray-400" />
+                    <span className="text-gray-600">{institution.workingHours}</span>
                   </div>
 
                   {/* Врачи в учреждении */}
