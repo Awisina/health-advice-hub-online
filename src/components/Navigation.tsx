@@ -28,6 +28,9 @@ const Navigation = () => {
             <a href="#pharmacies" className="text-gray-600 hover:text-blue-600 transition-colors">
               Аптеки
             </a>
+            <a href="#advertising" className="text-gray-600 hover:text-blue-600 transition-colors">
+              Реклама
+            </a>
             <a href="#about" className="text-gray-600 hover:text-blue-600 transition-colors">
               О нас
             </a>

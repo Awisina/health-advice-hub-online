@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import Pharmacies from "@/components/Pharmacies";
 import AIConsultant from "@/components/AIConsultant";
 import PaidConsultations from "@/components/PaidConsultations";
+import Advertising from "@/components/Advertising";
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
       <PaidConsultations />
       <MedicalInstitutions />
       <Pharmacies />
+      <Advertising />
       <About />
       <Contact />
       <Footer />
