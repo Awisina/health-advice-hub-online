@@ -1,10 +1,11 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, Clock, MapPin, User, Stethoscope, Star, MessageSquare } from "lucide-react";
+import { Phone, Mail, Clock, MapPin, User, Stethoscope } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
@@ -21,8 +22,8 @@ const Contact = () => {
       email: "info@cgb-moscow.ru",
       workingHours: "Круглосуточно",
       doctors: [
-        { name: "Иванов Петр Сергеевич", specialty: "Кардиолог", phone: "+7 (495) 123-45-68", rating: 9.8, reviews: 127 },
-        { name: "Смирнова Елена Александровна", specialty: "Терапевт", phone: "+7 (495) 123-45-69", rating: 9.6, reviews: 89 }
+        { name: "Иванов Петр Сергеевич", specialty: "Кардиолог", phone: "+7 (495) 123-45-68" },
+        { name: "Смирнова Елена Александровна", specialty: "Терапевт", phone: "+7 (495) 123-45-69" }
       ]
     },
     {
@@ -34,8 +35,8 @@ const Contact = () => {
       email: "info@gp1-spb.ru",
       workingHours: "Пн-Пт: 8:00-20:00, Сб-Вс: 9:00-18:00",
       doctors: [
-        { name: "Козлов Андрей Викторович", specialty: "Невролог", phone: "+7 (812) 345-67-90", rating: 9.8, reviews: 156 },
-        { name: "Федорова Анна Николаевна", specialty: "Педиатр", phone: "+7 (812) 345-67-91", rating: 9.6, reviews: 142 }
+        { name: "Козлов Андрей Викторович", specialty: "Невролог", phone: "+7 (812) 345-67-90" },
+        { name: "Федорова Анна Николаевна", specialty: "Педиатр", phone: "+7 (812) 345-67-91" }
       ]
     },
     {
@@ -47,19 +48,19 @@ const Contact = () => {
       email: "info@okb-ekb.ru",
       workingHours: "Круглосуточно",
       doctors: [
-        { name: "Петрова Ольга Дмитриевна", specialty: "Гинеколог", phone: "+7 (343) 456-78-91", rating: 9.4, reviews: 203 }
+        { name: "Петрова Ольга Дмитриевна", specialty: "Гинеколог", phone: "+7 (343) 456-78-91" }
       ]
     },
     {
       region: "Новосибирская область",
-      district: "Центральный", 
+      district: "Центральный",
       name: "Медицинский центр 'Здоровье'",
       address: "г. Новосибирск, ул. Красный пр., д. 12",
       phone: "+7 (383) 567-89-01",
       email: "info@zdorovie-nsk.ru",
       workingHours: "Пн-Пт: 8:00-20:00, Сб: 9:00-18:00",
       doctors: [
-        { name: "Волков Михаил Алексеевич", specialty: "Хирург", phone: "+7 (383) 567-89-02", rating: 9.8, reviews: 178 }
+        { name: "Волков Михаил Алексеевич", specialty: "Хирург", phone: "+7 (383) 567-89-02" }
       ]
     }
   ];
@@ -184,7 +185,7 @@ const Contact = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">Все регионы</SelectItem>
-                  {medicalInstitutions.map(inst => inst.region).filter((region, index, arr) => arr.indexOf(region) === index).map(region => (
+                  {regions.filter(region => region !== "all").map(region => (
                     <SelectItem key={region} value={region}>{region}</SelectItem>
                   ))}
                 </SelectContent>
@@ -198,10 +199,7 @@ const Contact = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">Все районы</SelectItem>
-                  {(selectedRegion === "all" 
-                    ? medicalInstitutions.map(inst => inst.district)
-                    : medicalInstitutions.filter(inst => inst.region === selectedRegion).map(inst => inst.district)
-                  ).filter((district, index, arr) => arr.indexOf(district) === index).map(district => (
+                  {districts.filter(district => district !== "all").map(district => (
                     <SelectItem key={district} value={district}>{district}</SelectItem>
                   ))}
                 </SelectContent>
@@ -210,11 +208,7 @@ const Contact = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {medicalInstitutions.filter(institution => {
-              const regionMatch = selectedRegion === "all" || institution.region === selectedRegion;
-              const districtMatch = selectedDistrict === "all" || institution.district === selectedDistrict;
-              return regionMatch && districtMatch;
-            }).map((institution, index) => (
+            {filteredInstitutions.map((institution, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start justify-between">
@@ -268,10 +262,10 @@ const Contact = () => {
                       <Stethoscope className="w-4 h-4 mr-2 text-green-600" />
                       Врачи
                     </h4>
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {institution.doctors.map((doctor, doctorIndex) => (
-                        <div key={doctorIndex} className="bg-gray-50 p-4 rounded-lg">
-                          <div className="flex items-start justify-between mb-2">
+                        <div key={doctorIndex} className="bg-gray-50 p-3 rounded-lg">
+                          <div className="flex items-center justify-between">
                             <div>
                               <div className="flex items-center space-x-2">
                                 <User className="w-4 h-4 text-gray-500" />
@@ -287,16 +281,6 @@ const Contact = () => {
                               {doctor.phone}
                             </a>
                           </div>
-                          <div className="flex items-center space-x-4 ml-6">
-                            <div className="flex items-center space-x-1">
-                              <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                              <span className="text-sm font-bold text-blue-600">{doctor.rating}/10</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <MessageSquare className="w-4 h-4 text-gray-400" />
-                              <span className="text-sm text-gray-600">{doctor.reviews} отзывов</span>
-                            </div>
-                          </div>
                         </div>
                       ))}
                     </div>
@@ -306,11 +290,7 @@ const Contact = () => {
             ))}
           </div>
           
-          {medicalInstitutions.filter(institution => {
-            const regionMatch = selectedRegion === "all" || institution.region === selectedRegion;
-            const districtMatch = selectedDistrict === "all" || institution.district === selectedDistrict;
-            return regionMatch && districtMatch;
-          }).length === 0 && (
+          {filteredInstitutions.length === 0 && (
             <div className="text-center py-8">
               <p className="text-gray-500">Медицинские учреждения по выбранным критериям не найдены</p>
             </div>
